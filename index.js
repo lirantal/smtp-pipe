@@ -6,6 +6,13 @@ var util = require('util');
 var MailParser = require('mailparser').MailParser;
 var mailparser = new MailParser();
 
+var config = {
+	smtp: {
+		host: 'localhost',
+		port: 25
+	}
+};
+
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
 
@@ -24,7 +31,7 @@ mailparser.on('end', function(mail){
 	// object structure for parsed e-mail
 	console.log(mail);
 
-	var smtpClient = smtp.connect(25, 'localhost');
+	var smtpClient = smtp.connect(config.smtp.port, config.smtp.host);
 	smtpClient.once('idle', function() {
 	    smtpClient.useEnvelope(mail.headers);
 	});
