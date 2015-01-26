@@ -10,14 +10,17 @@ var config = {
 	smtp: {
 		host: 'localhost',
 		port: 25
-	}
+	},
+	debug: true
 };
 
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
 
 process.stdin.on('data', function (text) {
-  console.log('received data:', util.inspect(text));
+  if (config.debug)
+  	console.log('DEBUG: received data:', util.inspect(text));
+
   mailparser.write(text);
 });
 
@@ -26,10 +29,11 @@ process.stdin.on('end', function() {
 });
 
 mailparser.on('end', function(mail){
-	console.log('created the mail envelope:');
-
-	// object structure for parsed e-mail
-	console.log(mail);
+	if (config.debug) {
+		console.log('DEBUG: created the mail envelope:');
+		// object structure for parsed e-mail
+		console.log(mail);
+	}
 
 	var smtpClient = smtp.connect(config.smtp.port, config.smtp.host);
 	smtpClient.once('idle', function() {
