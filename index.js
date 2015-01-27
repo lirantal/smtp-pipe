@@ -49,4 +49,9 @@ mailparser.on('end', function(mail){
 		smtpClient.close();
 	});
 
+	smtpClient.on("error", function(err){
+		console.log("smtpclient error:");
+		console.log(err);
+	});
+
 });
