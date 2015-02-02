@@ -3,6 +3,7 @@
 
 var smtp = require('simplesmtp');
 var util = require('util');
+var chalk = require('chalk');
 var MailParser = require('mailparser').MailParser;
 var mailparser = new MailParser();
 
@@ -19,7 +20,7 @@ process.stdin.setEncoding('utf8');
 
 process.stdin.on('data', function (text) {
   if (config.debug)
-  	console.log('DEBUG: received data:', util.inspect(text));
+  	console.log(chalk.red('DEBUG: received data:', util.inspect(text)));
 
   mailparser.write(text);
 });
@@ -30,9 +31,9 @@ process.stdin.on('end', function() {
 
 mailparser.on('end', function(mail){
 	if (config.debug) {
-		console.log('DEBUG: created the mail envelope:');
+		console.log(chalk.red('DEBUG: created the mail envelope:'));
 		// object structure for parsed e-mail
-		console.log(mail);
+		console.log(chalk.red(JSON.stringify(mail)));
 	}
 
 	var smtpClient = smtp.connect(config.smtp.port, config.smtp.host);
@@ -50,8 +51,8 @@ mailparser.on('end', function(mail){
 	});
 
 	smtpClient.on("error", function(err){
-		console.log("smtpclient error:");
-		console.log(err);
+		console.log(chalk.red("smtpclient error:"));
+		console.log(chalk.red(err));
 	});
 
 });
