@@ -29,7 +29,7 @@ process.stdin.on('end', function() {
 	mailparser.end();
 });
 
-mailparser.on('end', function(mail){
+mailparser.on('end', function(mail) {
 	if (config.debug) {
 		console.log(chalk.red('DEBUG: created the mail envelope:'));
 		// object structure for parsed e-mail
@@ -41,18 +41,17 @@ mailparser.on('end', function(mail){
 	    smtpClient.useEnvelope(mail.headers);
 	});
 
-	smtpClient.on("message", function(){
+	smtpClient.on("message", function() {
 		smtpClient.write(mail.text);
 		smtpClient.end();
 	});
 
-	smtpClient.on("ready", function(){
+	smtpClient.on("ready", function() {
 		smtpClient.close();
 	});
 
-	smtpClient.on("error", function(err){
+	smtpClient.on("error", function(err) {
 		console.log(chalk.red("smtpclient error:"));
 		console.log(chalk.red(err));
 	});
-
 });
