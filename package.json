@@ -1,5 +1,5 @@
 {
-  "name": "smtppipe",
+  "name": "smtp-pipe",
   "version": "1.0.0",
   "description": "Pipe any mail envelope input and output forward as SMTP client",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lirantal/smtppipe.git"
+    "url": "https://github.com/lirantal/smtp-pipe.git"
   },
   "keywords": [
     "smtp",
@@ -27,7 +27,7 @@
   "author": "Liran Tal <liran.tal@gmail.com> (http://www.enginx.com/)",
   "license": "GPLv2",
   "bugs": {
-    "url": "https://github.com/lirantal/smtppipe/issues"
+    "url": "https://github.com/lirantal/smtp-pipe/issues"
   },
-  "homepage": "https://github.com/lirantal/smtppipe"
+  "homepage": "https://github.com/lirantal/smtp-pipe"
 }
