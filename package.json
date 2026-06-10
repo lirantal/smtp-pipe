@@ -1,4 +1,8 @@
 {
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  },
   "name": "smtp-pipe",
   "version": "1.0.0",
   "description": "Pipe any mail envelope input and output forward as SMTP client",
