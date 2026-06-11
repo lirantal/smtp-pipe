@@ -1,8 +1,4 @@
 {
-  "publishConfig": {
-    "provenance": true,
-    "access": "public"
-  },
   "name": "smtp-pipe",
   "version": "1.0.0",
   "description": "Pipe any mail envelope input and output forward as SMTP client",
@@ -37,5 +33,9 @@
   "bugs": {
     "url": "https://github.com/lirantal/smtp-pipe/issues"
   },
-  "homepage": "https://github.com/lirantal/smtp-pipe"
+  "homepage": "https://github.com/lirantal/smtp-pipe",
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  }
 }
