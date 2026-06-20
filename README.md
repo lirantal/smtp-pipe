@@ -21,6 +21,9 @@ Another common usage example is configure PHP to send all e-mails that are sent 
 ```
 * If you're updating the php.ini file for PHP's CLI then you might need to re-start your command line daemon to re-read the configuration. If it's the web php.ini config file you changed then it might need an apache restart as you might be using byte code caching like apc, for the new setting to take effect.
 
+## Documentation
+
+- [Project documentation](./docs/README.md) - development, testing, architecture, and conventions.
 
 ## Contributing
 
